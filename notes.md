@@ -9,10 +9,10 @@
 - [MDN](https://developer.mozilla.org)
 
 ## AWS Notes
-Removed on home laptop
+Removed on home laptop - Changed on web
 
 
 ## HTML Notes
-Removed on home laptop
+Removed on home laptop - Changed on web
 
 

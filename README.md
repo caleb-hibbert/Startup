@@ -1,8 +1,5 @@
 # Web Chatting with Friends
 
-[My Notes](notes.md)
-The **Web Chatting with Friends** startup will allow users to log into a simple web chatting service through their browser where they can start or continue existing conversations with friends, family, and other aquantinces. It will provide a daily knock knock joke pulled from the Humor API to give users a casual way to reinitiate conversations if they ever need a hand getting talk started up again.
-
 ## 🚀 Specification Deliverable
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.

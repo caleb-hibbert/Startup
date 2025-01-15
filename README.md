@@ -1,43 +1,26 @@
 # Web Chatting with Friends
 
 [My Notes](notes.md)
-The Web Chatting with Friends startup will allow users to log into a simple web chatting service through their browser where they can start or continue existing conversations with friends, family, and other aquantinces. It will provide a daily knock knock joke pulled from the Humor API to give users a casual way to reinitiate conversations if they ever need a hand getting talk started up again.
-
-
-> [!NOTE]
->  This is a template for your startup application. You must modify this `README.md` file for each phase of your development. You only need to fill in the section for each deliverable when that deliverable is submitted in Canvas. Without completing the section for a deliverable, the TA will not know what to look for when grading your submission. Feel free to add additional information to each deliverable description, but make sure you at least have the list of rubric items and a description of what you did for each item.
-
-> [!NOTE]
->  If you are not familiar with Markdown then you should review the [documentation](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) before continuing.
+The **Web Chatting with Friends** startup will allow users to log into a simple web chatting service through their browser where they can start or continue existing conversations with friends, family, and other aquantinces. It will provide a daily knock knock joke pulled from the Humor API to give users a casual way to reinitiate conversations if they ever need a hand getting talk started up again.
 
 ## 🚀 Specification Deliverable
-
-> [!NOTE]
->  Fill in this sections as the submission artifact for this deliverable. You can refer to this [example](https://github.com/webprogramming260/startup-example/blob/main/README.md) for inspiration.
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [X] Proper use of Markdown
 - [X] A concise and compelling elevator pitch
 - [X] Description of key features
-- [] Description of how you will use each technology
-- [] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+- [X] Description of how you will use each technology
+- [X] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+
 
 ### Elevator pitch
-Web Chatting With Friends aims to provide a simple way to communicate with friends or family across devices! No need to download a hundred apps across different devices, no more waiting for updates to install before replying to someone, or discovering that your favorite app isn't compatible with your new phone or operating system - all you need is your browser, username, and password and you're good to go!
+**Web Chatting With Friends** aims to provide a simple way to communicate with friends or family across devices! No need to download a hundred apps across different devices, no more waiting for updates to install before replying to someone, or discovering that your favorite app isn't compatible with your new phone or operating system - all you need is your browser, username, and password and you're good to go!
+
 
 ### Design
+![image](https://github.com/user-attachments/assets/8466b9c3-e1a6-4600-8eae-4dce3a7fad62)
 
-![Design image](placeholder.png)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-```mermaid
-sequenceDiagram
-    actor You
-    actor Website
-    You->>Website: Replace this with your design
-```
 
 ### Key features
 
@@ -54,9 +37,9 @@ I am going to use the required technologies in the following ways.
 - **HTML** - I will be using two HTML pages for the login screen and for the chat screen. Friends and their status will be displayed on the left, with the current chat window in the center of the screen. Selecting another chat will cause the chat window to change to that of the selected person.
 - **CSS** - The page will resize to correctly fit different screen sizes, to ensure elements are properly sized. The webpage will use proper style and formatting.
 - **React** - Allow users to log in, send messages, see friend status, display text as it's typed and display it in the chat history once sent.
-- **Service** - 
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **Service** - The application will retreive login information, friends list, and chat history. It will retreive the daily knock knock joke from the Humor API.
+- **DB/Login** - Stores users, friend association, and chat history in a database. Users won't be able to send or receive messages until logged in with a valid account.
+- **WebSocket** - When a user sends a message, their active status will be enabled be visible to those on their friends list. Sending a message to a friend will update their page to display its contents.
 
 ## 🚀 AWS deliverable
 

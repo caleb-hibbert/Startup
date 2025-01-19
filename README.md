@@ -1,4 +1,4 @@
-# Web Chatting with Friends
+# Web Chat With Friends
 
 ## 🚀 Specification Deliverable
 
@@ -12,7 +12,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 
 ### Elevator pitch
-**Web Chatting With Friends** aims to provide a simple way to communicate with friends or family across devices! No need to download a hundred apps across different devices, no more waiting for updates to install before replying to someone, or discovering that your favorite app isn't compatible with your new phone or operating system - all you need is your browser, username, and password and you're good to go!
+**Web Chat With Friends** aims to provide a simple way to communicate with friends or family across devices! No need to download a hundred apps across different devices, no more waiting for updates to install before replying to someone, or discovering that your favorite app isn't compatible with your new phone or operating system - all you need is your browser, username, and password and you're good to go!
 
 
 ### Design

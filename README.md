@@ -35,7 +35,7 @@ I am going to use the required technologies in the following ways.
 - **CSS** - The page will resize to correctly fit different screen sizes, to ensure elements are properly sized. The webpage will use proper style and formatting.
 - **React** - Allow users to log in, send messages, see friend status, display text as it's typed and display it in the chat history once sent.
 - **Service** - The application will retreive login information, friends list, and chat history. It will retreive the daily knock knock joke from the Humor API.
-- **DB/Login** - Stores users, friend association, and chat history in a database. Users won't be able to send or receive messages until logged in with a valid account.
+- **DB/Login** - Stores users, friend association, and chat history in a database. Users won't be able to send or receive messages until logged in with a valid account. Welcome message placeholder added that displays user's username at the top of the chat page.
 - **WebSocket** - When a user sends a message, their active status will be enabled be visible to those on their friends list. Sending a message to a friend will update their page to display its contents.
 
 ## 🚀 AWS deliverable

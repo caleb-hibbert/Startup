@@ -50,7 +50,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 - [X] **HTML pages** - I have two HTML pages, one for logging in, and one for viewing friend list and talking to them.
 - [X] **Proper HTML element usage** - Used HTML elements to sort and display text, provide interactable buttons/text fields, manage lists and tables, link images, and link other websites.
-- [X] **Links** - I implemented links to move from the login page to the chat page, as well as hyperlinks to my GitHub page.
+- [X] **Links** - I implemented links to move between the login page to the chat page, as well as hyperlinks to my GitHub page.
 - [X] **Text** - I used text throughout the deliverable to convey information about interactables to the user and to present the daily joke.
 - [X] **3rd party API placeholder** - The bottom of the chat page has a placeholder joke, once implemented it will display a random joke each day.
 - [X] **Images** - I used a chat bubble image for the favicon and in the header next to the "chatting with friends" title.

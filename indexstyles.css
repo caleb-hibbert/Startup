@@ -1,3 +1,12 @@
 p{
-    color:green;
+    color:blue;
+    border-bottom: thick orange solid;
+    
+}
+a.link{
+    font-weight: bold;
+    xbackground-color: red;
+    xborder-left: solid 1em purple;
+    border:  blue;
+
 }

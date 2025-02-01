@@ -2,7 +2,9 @@
 <html lang="en">
     <head>
         <title>Chatting With Friends!</title>
+        <link rel="stylesheet" href="chatstyles.css" />
         <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/d/d1/Bubbles-alt-icon.png"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
     </head>
 
     <body>
@@ -15,7 +17,7 @@
             <p>Welcome back, Caleb!</p>
             <h3> Talking to: Adam</h3>
 
-            <table>
+            <table id="friendlist">
               <tr>
                 <th>Friends</th>
                 <th></th>
@@ -26,6 +28,7 @@
               <tr><th>Maxwell</th> <th></th><th>Yes</th></tr>
 
             </table>
+            <br>
             <tr><th>Add Friend: </th><th><input type="text" id="friendname" name="friendname" placeholder="Enter Friend Name"></th><th><button type="submit">Send Request</button></th></tr>
 
             <img src="Chat window example.png" style="width:500px;height:250px;">
@@ -34,8 +37,8 @@
             <button type="submit">Send</button>
 
             <p>Joke of the day:</p>
-            <list>
-                <li>Knock Knock:</li>
+            <list id="jokebox">
+                <li">Knock Knock:</li>
                 <li>Who's there?</li>
                 <li>Tank</li>
                 <li>Tank who?</li>
@@ -52,7 +55,7 @@
             <hr>
             <span>Creator: Caleb Hibbert</span> <br>
             <nav>
-                <a href="https://github.com/caleb-hibbert/Startup">Github</a>
+                <a class="link" href="https://github.com/caleb-hibbert/Startup">Github</a>
             </nav>
         </footer>
     </body>

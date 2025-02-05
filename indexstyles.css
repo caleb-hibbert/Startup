@@ -1,22 +1,51 @@
+header{
+    background: #f7f7f734;
+    border-bottom: thin rgb(0, 0, 0) solid;
+}
+
 main{
+    min-height: 100vh;
+    /* xtext-align: center; */
+    background: #87a8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2{
     text-align: center;
 }
 
-body {
-    background: #a7f7f7;
-  }
-
-
-p{
-    color:black;
-
-    
+input{
+    display:block;
+    margin: 10px;
 }
+
+.form-group{
+    border: 3px solid #060606;
+    background-color: white;
+    padding: 100px;
+    display: block;
+    width: 60%;
+
+
+    /* text-align: center;
+    margin-top: 10%;
+    margin-right: 10%;
+    margin-bottom: 20%;
+    margin-left: 25%; */
+
+
+
+}
+
+
+
+
 a.link{
     font-weight: bold;
-    xbackground-color: red;
-    xborder-left: solid 1em purple;
-    xborder: solid 1em blue;
+    color: blue;
+
 }
 
 

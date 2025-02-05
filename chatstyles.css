@@ -19,14 +19,14 @@ a.link{
 }
 
 span{
-    color: orange;
+    color: rgb(234, 205, 152);
 }
 
 #jokebox {
     display:inline-block;
         border:1px solid #000;
         padding:20px;
-        background-color:aliceblue;
+        xbackground-color:aliceblue;
 }
 #friendlist {
     display:inline-block;

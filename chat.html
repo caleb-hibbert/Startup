@@ -9,10 +9,8 @@
     </head>
 
     <body>
-    
         <header>
             <h2>Chatting With Friends! <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Bubbles-alt-icon.png" style="width:50px;height:50px;"></h2>
-            <hr>
         </header>
 
         <main>
@@ -31,13 +29,16 @@
 
             </table>
             <br>
-            <tr><th>Add Friend: </th><th><input type="text" id="friendname" name="friendname" placeholder="Enter Friend Name"></th><th><button type="submit">Send Request</button></th></tr>
-
+            <form>
+                <tr><th>Add Friend: </th><th><input type="text" id="friendname" name="friendname" placeholder="Enter Friend Name"></th><th><button type="submit">Send Request</button></th></tr>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
             <img src="Chat window example.png" style="width:500px;height:250px;">
             <br>
-            <input type="text" id="message" name="message" placeholder="Enter your message here">
-            <button type="submit">Send</button>
-
+            <form>
+                <input type="text" id="message" name="message" placeholder="Enter your message here">
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
             <p>Joke of the day:</p>
             <list id="jokebox">
                 <li">Knock Knock:</li>
@@ -49,9 +50,10 @@
             <nav>
                 <form method="get" action="index.html">
                     <label for="returntologinpage:">Return to login page?</label>
-                    <button type="Log out">Log out</button>
+                    <button type="submit" class="btn btn-primary">Log out</button>
                 </form>
             </nav>
+
         </main>
         <footer>
             <hr>

@@ -12,21 +12,24 @@ main{
     align-items: center;
 }
 
-h2{
+h2{ 
     text-align: center;
 }
 
-input{
+/* input{
     display:block;
-    margin: 10px;
-}
+    margin: 10px auto;
+} */
+
 
 .form-group{
     border: 3px solid #060606;
     background-color: white;
-    padding: 100px;
+    padding: 40px;
     display: block;
     width: 60%;
+    text-align: center;
+    
 
 
     /* text-align: center;
@@ -38,6 +41,10 @@ input{
 
 
 }
+button {
+    display: block; /* Ensure the button is block-level (stack below inputs) */
+    margin: 10px auto; /* Center the button horizontally */
+}
 
 
 
@@ -45,16 +52,17 @@ input{
 a.link{
     font-weight: bold;
     color: blue;
-
 }
 
 
 footer{
-    position: fixed;
+    position: bottom;
     left: 0;
     bottom: 0;
     width: 100%;
     text-align: center;
+    background: #797e8a;
+    border-top: thin black solid;
     
 }
 

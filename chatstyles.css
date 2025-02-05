@@ -1,8 +1,9 @@
-xp{
-    color:blue;
-    border-bottom: thick orange solid;
-    
+header{
+    background: #f7f7f734;
+    border-bottom: thin rgb(0, 0, 0) solid;
 }
+
+
 a.link{
     font-weight: bold;
     xbackground-color: red;
@@ -10,17 +11,16 @@ a.link{
     xborder: solid 1em blue;
     
 }
-@media(orientation: portrait){
-    #friendlist{
-        color: blue;
-        xdisplay: none;
-    }
-
+button {
+    display: block; /* Ensure the button is block-level (stack below inputs) */
+    margin: 10px auto; /* Center the button horizontally */
 }
 
-span{
-    color: rgb(234, 205, 152);
+a.link{
+    font-weight: bold;
+    color: blue;
 }
+
 
 #jokebox {
     display:inline-block;
@@ -37,10 +37,12 @@ span{
 
 
 footer{
-    position: fixed;
+    position: bottom;
     left: 0;
     bottom: 0;
     width: 100%;
     text-align: center;
+    background: #797e8a;
+    border-top: thin black solid;
     
 }

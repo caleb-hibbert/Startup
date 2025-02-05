@@ -1,6 +1,15 @@
+main{
+    text-align: center;
+}
+
+body {
+    background: #a7f7f7;
+  }
+
+
 p{
-    color:blue;
-    border-bottom: thick orange solid;
+    color:black;
+
     
 }
 a.link{
@@ -8,16 +17,15 @@ a.link{
     xbackground-color: red;
     xborder-left: solid 1em purple;
     xborder: solid 1em blue;
+}
+
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
     
 }
-@media(orientation: portraig){
-    friendlist{
-        color: blue;
-        xdisplay: none;
-    }
 
-}
-
-span{
-    color: orange;
-}

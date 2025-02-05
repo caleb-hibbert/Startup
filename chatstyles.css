@@ -2,23 +2,19 @@ header{
     background: #f7f7f734;
     border-bottom: thin rgb(0, 0, 0) solid;
 }
+main{
 
 
-a.link{
-    font-weight: bold;
-    xbackground-color: red;
-    xborder-left: solid 1em purple;
-    xborder: solid 1em blue;
-    
-}
-button {
-    display: block; /* Ensure the button is block-level (stack below inputs) */
-    margin: 10px auto; /* Center the button horizontally */
 }
 
 a.link{
     font-weight: bold;
     color: blue;
+    
+}
+button {
+    display: block; /* Ensure the button is block-level (stack below inputs) */
+    margin: 10px auto; /* Center the button horizontally */
 }
 
 

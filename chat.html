@@ -17,23 +17,24 @@
             <p>Welcome back, Caleb!</p>
             <h3> Talking to: Adam</h3>
 
+            <div id="friendlistplusbox">
+                <table id="friendlist">
+                <tr>
+                    <th>Friends</th>
+                    <th></th>
+                    <th>Active?</th>
+                </tr>
+                <tr><th>Adam</th> <th></th><th>Yes</th></tr>
+                <tr><th>Jill</th> <th></th><th>No</th></tr>
+                <tr><th>Maxwell</th> <th></th><th>Yes</th></tr>
 
-            <table id="friendlist">
-              <tr>
-                <th>Friends</th>
-                <th></th>
-                <th>Active?</th>
-              </tr>
-              <tr><th>Adam</th> <th></th><th>Yes</th></tr>
-              <tr><th>Jill</th> <th></th><th>No</th></tr>
-              <tr><th>Maxwell</th> <th></th><th>Yes</th></tr>
-
-            </table>
-            <br>
-            <form>
-                <tr><th>Add Friend: </th><th><input type="text" id="friendname" name="friendname" placeholder="Enter Friend Name"></th></tr>
-                <button type="submit" class="btn btn-primary">Send</button>
-            </form>
+                </table>
+                <br>
+                <form>
+                    <tr><th>Add Friend: </th><th><input type="text" id="friendname" name="friendname" placeholder="Enter Friend Name"></th></tr>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </form>
+            </div>
             <div>
                 <img id="chatbox" src="Chat window example.png" style="width:500px;height:250px;">
             </div>
@@ -44,7 +45,7 @@
             </form>
 
             <list id="jokebox">
-                <p>Joke of the day:</p>
+                <p id="jokeoftheday">Joke of the day:</p>
                 <li">Knock Knock:</li>
                 <li>Who's there?</li>
                 <li>Tank</li>

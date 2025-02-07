@@ -12,12 +12,12 @@ main{
     align-items: center;
 
 }
+#chatbox{
+    display: flex;
 
-
-button {
-    display: block; /* Ensure the button is block-level (stack below inputs) */
-    margin: 10px auto; /* Center the button horizontally */
 }
+
+
 
 #chatbox{
     display: flex;
@@ -25,18 +25,21 @@ button {
     align-items: center;
     padding: 1px;
 }
-#friendlist{
-    background-color: blue;
+#friendlistplusbox{
+    position: absolute;
+    top: 58px;
+    left: 0px;
     display:block;
-    float: left;
     border:1px solid black;
     padding: 10px;
-    margin-bottom: 10px;
+
     
 
 
 }
-
+#friendlist{
+    border: 1px solid black;
+}
 
 
 #jokebox {
@@ -47,28 +50,24 @@ button {
         bottom: -5px;
         left: 0px;
 
-        xbackground-color:aliceblue;
 }
-#jokeoftheday{
-    border-bottom: 1px solid black;
-    background-color: blue;
-    color: orange;
-}
-
-
-
 
 @media (max-width: 600px), (max-height: 500px){
     #jokebox{
         display: none;
     }
+    #friendlistplusbox{
+        display: none;
+    }
 }
 
-
+button {
+    display: block; /* Ensure the button is block-level (stack below inputs) */
+    margin: 10px auto; /* Center the button horizontally */
+}
 a.link{
     font-weight: bold;
     color: blue;
-    
 }
 footer{
     position: bottom;

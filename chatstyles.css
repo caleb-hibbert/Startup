@@ -5,19 +5,19 @@ header{
 main{
     min-height: 100vh;
     /* xtext-align: center; */
-    background: rgba(0, 0, 0, 0.533);
+    background: rgba(22, 48, 120, 0.227);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 
 }
-#chatbox{
-    display: flex;
 
+#returntologinpage{
+    position: absolute;
+    bottom: 1px;
+    right: 5px;
 }
-
-
 
 #chatbox{
     display: flex;
@@ -52,7 +52,7 @@ main{
 
 }
 
-@media (max-width: 600px), (max-height: 500px){
+@media (max-width: 1250px), (max-height: 500px){
     #jokebox{
         display: none;
     }

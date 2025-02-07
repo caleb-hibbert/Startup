@@ -62,12 +62,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Header, footer, and main content body** - I did not complete this part of the deliverable.
-- [ ] **Navigation elements** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing** - I did not complete this part of the deliverable.
-- [ ] **Application elements** - I did not complete this part of the deliverable.
-- [ ] **Application text content** - I did not complete this part of the deliverable.
-- [ ] **Application images** - I did not complete this part of the deliverable.
+- [X] **Header, footer, and main content body** - Header and footer are consistentn across pages and have proper formatting and styling.
+- [X] **Navigation elements** - Links to navigate between pages work correctly, as well as links to my Github page.
+- [X] **Responsive to window resizing** - Elements shift and disappear based on window size to prevent overlap with key features.
+- [X] **Application elements** - The page is easily understandable and readable at a glance.
+- [X] **Application text content** - Text is formatted neatly and colored to indicate web links.
+- [X] **Application images** - Used my logo as a favicon in the top bar and in my header.
 
 ## 🚀 React part 1: Routing deliverable
 

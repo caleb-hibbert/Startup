@@ -1,0 +1,42 @@
+
+
+
+    <div id="spot1">This is spot 1</div>
+    <p>SPACER</p>
+    <br>
+    <div id="spot2">This is spot 2</div>
+
+
+
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+function Sayhello(){
+    alert("Hello");
+}
+function Saygoodbye(){
+    alert("Goodbye");
+}
+
+function Callhello(){
+    return (
+        <div>
+           <button onClick={Sayhello}> Hello Button </button>
+        </div>
+    );
+}
+
+function Callgoodbye(){
+    return (
+        <div>
+            <button onClick={Saygoodbye}>Goodbye Button</button>
+        </div>
+    );
+}
+
+const root1 = ReactDOM.createRoot(document.getElementById("spot1"));
+root1.render(<Callhello />);
+
+const root2 = ReactDOM.createRoot(document.getElementById("spot2"));
+root2.render(<Callgoodbye />);

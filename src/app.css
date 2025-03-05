@@ -3,6 +3,13 @@ header{
     border-bottom: thin rgb(0, 0, 0) solid;
 }
 
+
+.body {
+    display: flex;
+    flex-direction: column;
+    min-width: 375px;
+  }
+
 main{
     min-height: 100vh;
     /* xtext-align: center; */

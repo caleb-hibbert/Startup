@@ -73,9 +73,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
-- [ ] **Components** - I did not complete this part of the deliverable.
-- [ ] **Router** - Routing between login and voting components.
+- [X] **Bundled using Vite** - Vite added and working.
+- [X] **Components** - Set up JSX, navigation between pages set up.
+- [X] **Router** - Routing between login and chat page works correctly and consistently.
 
 ## 🚀 React part 2: Reactivity
 

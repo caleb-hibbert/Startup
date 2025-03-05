@@ -20,17 +20,13 @@ export default function App() {
 
 
     <menu className="navbar-nav">
-            <li className="nav-item">
-              <a className="nav-link" href="index.html">
-                Login
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="chat.html">
-                Chat
-              </a>
-            </li>
-          </menu>
+        <li className="nav-item">
+            <NavLink className="nav-link" to="">Login</NavLink>
+        </li>
+        <li className="nav-item">
+            <NavLink className="nav-link" to="chat">Chat</NavLink>
+        </li>
+    </menu>
 
         {/* <title>CWF Login</title>
         <link rel="stylesheet" href="indexstyles.css" />
@@ -41,18 +37,19 @@ export default function App() {
     </header>
 
 
-    <main>App components go here</main>
-  
-  
-  
+    <Routes>
+        <Route path='/' element={<Login />} exact />
+        <Route path='/chat' element={<Chat />} />
+        <Route path='*' element={<NotFound />} />
+    </Routes>
   
   
     <footer>
-            <span>Creator: Caleb Hibbert</span> <br/>
-            <nav>
-                <a class="link" href="https://github.com/caleb-hibbert/Startup">Github</a>
-            </nav>
-        </footer>
+        <span>Creator: Caleb Hibbert</span> <br/>
+        <nav>
+            <NavLink className="link" to="https://github.com/caleb-hibbert/Startup">Github</NavLink>
+        </nav>
+    </footer>
   
   
   
@@ -62,3 +59,8 @@ export default function App() {
   </BrowserRouter>
   );
 }
+
+
+function NotFound() {
+    return <main className="container-fluid bg-secondary text-center">404: Return to sender. Address unknown.</main>;
+  }

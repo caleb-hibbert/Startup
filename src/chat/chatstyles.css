@@ -1,7 +1,4 @@
-header{
-    background: #f7f7f734;
-    border-bottom: thin rgb(0, 0, 0) solid;
-}
+
 main{
     min-height: 100vh;
     background: rgba(22, 48, 120, 0.227);
@@ -25,7 +22,7 @@ main{
 }
 #friendlistplusbox{
     position: absolute;
-    top: 58px;
+    top: 106px;
     left: 0px;
     display:block;
     border: 1px solid black;
@@ -51,7 +48,7 @@ main{
 
 }
 
-@media (max-width: 1250px), (max-height: 400px){
+@media (max-width: 1120px), (max-height: 480px){
     #friendlistplusbox{
         display: none;
     }
@@ -74,14 +71,4 @@ button {
 a.link{
     font-weight: bold;
     color: blue;
-}
-footer{
-    position: bottom;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    background: #797e8a;
-    border-top: thin black solid;
-    
 }

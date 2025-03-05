@@ -1,9 +1,14 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { Login } from './login/login';
+import { Chat } from './chat/chat';
+
 
 export default function App() {
   return (
+    <BrowserRouter>
   <div className="body bg-dark text-light">
   
   
@@ -12,6 +17,20 @@ export default function App() {
     <h2> Chatting with friends! {" "} 
         <img src= "https://upload.wikimedia.org/wikipedia/commons/d/d1/Bubbles-alt-icon.png" style={{width: "50px", height: "50px"}}/>
     </h2>
+
+
+    <menu className="navbar-nav">
+            <li className="nav-item">
+              <a className="nav-link" href="index.html">
+                Login
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="chat.html">
+                Chat
+              </a>
+            </li>
+          </menu>
 
         {/* <title>CWF Login</title>
         <link rel="stylesheet" href="indexstyles.css" />
@@ -40,5 +59,6 @@ export default function App() {
   
   
   </div>
+  </BrowserRouter>
   );
 }

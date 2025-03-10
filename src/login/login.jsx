@@ -1,5 +1,12 @@
 import React from 'react';
 export function Login() {
+
+  const [count, setCount] = React.useState(0);
+
+  function countClick(){
+    setCount(count+1);
+  }
+  
   return (
     <main className="container-fluid bg-secondary text-center">
         <title>CWF Login</title>
@@ -19,6 +26,8 @@ export function Login() {
                 <br/>
                 <p>(First time? Just enter the username and password you'd like to use going forward!)</p>
             </form>
+            <button onClick={countClick}>Count</button>
+            <div>{count}</div>
             
         </div>
     </main>

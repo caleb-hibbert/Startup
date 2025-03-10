@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter, NavLink, Route, Routes, useNavigate } from 'react-router-dom';
+
 import "./chatstyles.css";
 
-export function Chat() {
+export function Chat({user}) {
   return (
     <main className="container-fluid bg-secondary text-center">
         <title>CWF Chat</title>
-            <p>Welcome back, Caleb!</p>
+            <p>Welcome back, {user}!</p>
             <h3> Talking to: Adam</h3>
 
             <div id="friendlistplusbox">

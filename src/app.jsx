@@ -2,32 +2,34 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, NavLink, Route, Routes, useNavigate } from 'react-router-dom';
 import { Login } from './login/login';
 import { Chat } from './chat/chat';
 
 
 export default function App() {
   const [user, setUser] = React.useState(localStorage.getItem("user") || null);
+  
   return (
     <BrowserRouter>
   <div className="body bg-dark text-light">
   
   
   <header>
-
+  
     <h2> Chatting with friends! {" "} 
         <img src= "https://upload.wikimedia.org/wikipedia/commons/d/d1/Bubbles-alt-icon.png" style={{width: "50px", height: "50px"}}/>
     </h2>
-
 
     <menu className="navbar-nav">
         <li className="nav-item">
             <NavLink className="nav-link" to="">Login</NavLink>
         </li>
         <li className="nav-item">
-            { user && <NavLink className="nav-link" to="chat">Chat</NavLink>}
+            { user && <NavLink className="nav-link" to="chat">Chat (Logged in as: {user})</NavLink>}
         </li>
+        
+        
     </menu>
 
         {/* <title>CWF Login</title>
@@ -41,7 +43,7 @@ export default function App() {
 
     <Routes>
         <Route path='/' element={<Login setUser={setUser}/>} exact />
-        <Route path='/chat' element={<Chat />} />
+        <Route path='/chat' element={<Chat user = {user}/>} />
         <Route path='*' element={<NotFound />} />
     </Routes>
   

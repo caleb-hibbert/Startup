@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter, NavLink, Route, Routes, useNavigate } from 'react-router-dom';
 export function Login({setUser}) {
 
   const [count, setCount] = React.useState(parseInt(localStorage.getItem('count')) || 0);
+  const navigate = useNavigate();
+  const [msg, setMsg] = React.useState("...listening");
+
   function countClick(){
     setCount(count + 1);
     localStorage.setItem('count', count+1);
@@ -11,6 +15,7 @@ export function Login({setUser}) {
     // console.log("login"+ text);
     localStorage.setItem("user", text);
     setUser(text);
+    navigate ("/chat");
   }
   function textChange(e){
     setText(e.target.value);

@@ -1,17 +1,19 @@
-import React from 'react';
-export function Login() {
+import React, { useEffect, useState } from 'react';
+export function Login({setUser}) {
 
   const [count, setCount] = React.useState(parseInt(localStorage.getItem('count')) || 0);
   function countClick(){
     setCount(count + 1);
     localStorage.setItem('count', count+1);
   }
+  const [text, setText] = React.useState("");
   function loginUser(){
-    console.log("login");
-
+    // console.log("login"+ text);
+    localStorage.setItem("user", text);
+    setUser(text);
   }
   function textChange(e){
-    console.log(e.target.value);
+    setText(e.target.value);
   }
 
   return (
@@ -40,8 +42,9 @@ export function Login() {
     
             <div>
               <input type="text" onChange={textChange} />
-            <button onClick={loginUser}> login</button>
-            </div>
+              <button onClick={loginUser}> login</button>
+              
+              </div>
             
         </div>
     </main>

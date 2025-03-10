@@ -1,4 +1,5 @@
-import React from 'react';
+// import React from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
@@ -7,6 +8,7 @@ import { Chat } from './chat/chat';
 
 
 export default function App() {
+  const [user, setUser] = React.useState(localStorage.getItem("user") || null);
   return (
     <BrowserRouter>
   <div className="body bg-dark text-light">
@@ -24,7 +26,7 @@ export default function App() {
             <NavLink className="nav-link" to="">Login</NavLink>
         </li>
         <li className="nav-item">
-            <NavLink className="nav-link" to="chat">Chat</NavLink>
+            { user && <NavLink className="nav-link" to="chat">Chat</NavLink>}
         </li>
     </menu>
 
@@ -38,7 +40,7 @@ export default function App() {
 
 
     <Routes>
-        <Route path='/' element={<Login />} exact />
+        <Route path='/' element={<Login setUser={setUser}/>} exact />
         <Route path='/chat' element={<Chat />} />
         <Route path='*' element={<NotFound />} />
     </Routes>

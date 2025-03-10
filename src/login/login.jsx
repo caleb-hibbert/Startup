@@ -10,9 +10,20 @@ export function Login({setUser}) {
     setCount(count + 1);
     localStorage.setItem('count', count+1);
   }
+
+  React.useEffect(() =>{
+    setInterval(() => {
+      const names = ["bob", "sue", "tia"];
+      const randomName = names[Math.floor(Math.random() * names.length)];
+      const randomCount = Math.floor(Math.random() * 100) + 1;
+      const newMsg = `${randomName}: ${randomCount}`;
+      setMsg(newMsg);
+
+    }, 4000);
+  })
+
   const [text, setText] = React.useState("");
   function loginUser(){
-    // console.log("login"+ text);
     localStorage.setItem("user", text);
     setUser(text);
     navigate ("/chat");
@@ -43,6 +54,7 @@ export function Login({setUser}) {
             </form>
             <button onClick={countClick}>Count</button>
             <div>{count}</div>
+            <div>{msg}</div>
 
     
             <div>

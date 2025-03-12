@@ -1,9 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, NavLink, Route, Routes, useNavigate } from 'react-router-dom';
-
 import "./chatstyles.css";
 
 export function Chat({user}) {
+    const [message, setMessage] = React.useState("");
+    const [chatHistory, setChatHistory] = React.useState("");
+
+    function messageChange(m){
+        setMessage(m.target.value);
+    }
+    
+    function sendMessage(s){
+        s.preventDefault();
+        setChatHistory(chatHistory+ "(" + user + ")- " + message+"\n")
+        
+    }
+
+    // if (message.trim() !== "") {
+    //     setChatHistory(prevHistory => prevHistory + "\n" + user + ": " + message);
+    //     setMessage(""); // Clear input after sending
+
+    
+
   return (
     <main className="container-fluid bg-secondary text-center">
         <title>CWF Chat</title>
@@ -24,18 +42,27 @@ export function Chat({user}) {
                 </table>
                 <br/>
                 <form>
-                    <tr><th>Add Friend: </th><th><input type="text" id="friendname" name="friendname" placeholder="Enter Friend Name"></input></th></tr>
+                    <tr><th>Add Friend: </th><th><input type="text" id="friendname" placeholder="Enter Friend Name"></input></th></tr>
                     <button type="submit" className="btn btn-primary">Send</button>
                 </form>
             </div>
             <div>
-                <img id="chatbox" src="Chat window example.png" style={{width: "500px", height:"250px"}}></img>
+                {/* <img id="chatbox" src="Chat window example.png" style={{width: "500px", height:"250px"}}></img> */}
+
+                <textarea class="messagearea"  placeholder="Start chatting!" value = {chatHistory} readOnly = {true}></textarea>
             </div>
+
             <br/>
-            <form id="messageboxandsend">
-                <input type="text" id="message" name="message" placeholder="Enter your message here"></input>
-                <button type="submit" className="btn btn-primary">Send</button>
+
+            <form id="chatbox">
+                <input type="text" value = {message} onChange = {messageChange} ></input>
+                <button type="submit" className="btn btn-primary" onClick = {sendMessage}>Send</button>
             </form>
+
+
+
+
+
 
             <ul id="jokebox">
                 <p>Joke of the day:</p>

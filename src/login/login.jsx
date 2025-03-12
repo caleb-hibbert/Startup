@@ -22,7 +22,7 @@ export function Login({setUser}) {
     }, 4000);
   })
   const [username, setUsername] = React.useState("");
-  const [text, setPassword] = React.useState("");
+  const [password, setPassword] = React.useState("");
 
 
   function usernameChange(u){
@@ -33,10 +33,18 @@ export function Login({setUser}) {
   }
 
   function loginUser(){
-    localStorage.setItem("username", username)
-    localStorage.setItem("password", text);
-    setUser(username); 
-    navigate ("/chat");
+    if (username == ""){
+      alert ("Enter a username")  
+    }
+    else if (password == ""){
+      alert("Enter a password")
+    }
+    else{
+      localStorage.setItem("username", username)
+      localStorage.setItem("password", password);
+      setUser(username); 
+      navigate ("/chat");
+    }
   }
 
   return (
@@ -58,6 +66,7 @@ export function Login({setUser}) {
 
                 <br/>
                 <p>(First time? Just enter the username and password you'd like to use going forward!)</p>
+
             {/* </form> */}
 
             {/* <button onClick={countClick}>Count</button>
@@ -65,10 +74,10 @@ export function Login({setUser}) {
             <div>{msg}</div> */}
 
     
-            <div>
+            {/* <div>
               <input type="text" onChange={passwordChange} />
               <button onClick={loginUser}> login</button>
-              </div>
+              </div> */}
             
         </div>
     </main>

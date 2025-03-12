@@ -3,17 +3,30 @@ import { BrowserRouter, NavLink, Route, Routes, useNavigate } from 'react-router
 import "./chatstyles.css";
 
 export function Chat({user}) {
+
     const [message, setMessage] = React.useState("");
-    const [chatHistory, setChatHistory] = React.useState("");
+    const [chatHistory, setChatHistory] = React.useState(()=>{
+        return localStorage.getItem("chatHistory") || "";
+    });
+    useEffect(()=>{
+        localStorage.setItem("chatHistory", chatHistory);
+    }, [chatHistory]);
 
     function messageChange(m){
         setMessage(m.target.value);
     }
     
     function sendMessage(s){
+        console.log(s);
         s.preventDefault();
-        setChatHistory(chatHistory+ "(" + user + ")- " + message+"\n")
-        
+        if (message == "clearmessages"){
+            setChatHistory("")
+            localStorage.setItem("chatHistory", "");
+        }
+        else{
+            setChatHistory(prevHistory => prevHistory + `${user}): ${message}\n`);
+        }
+        setMessage("");
     }
 
     // if (message.trim() !== "") {
@@ -58,7 +71,8 @@ export function Chat({user}) {
                 <input type="text" value = {message} onChange = {messageChange} ></input>
                 <button type="submit" className="btn btn-primary" onClick = {sendMessage}>Send</button>
             </form>
-
+            <div>(type "clearmessages" in the text box to reset the chat window.)
+            </div>
 
 
 

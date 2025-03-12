@@ -10,18 +10,17 @@ export function Chat({user}) {
         return localStorage.getItem("chatHistory") || "";
     });
 
+    useEffect(() => {
+        const intervalId = setInterval(()=>{
+        const userName = `User-${Math.floor(Math.random() * 100)}`;
+        setChatHistory(prevHistory => prevHistory+`(${userName})-Hello! This is ${userName}\n`)
+      }, 5000);
+      return()=>{
+        clearInterval(intervalId);
+      };
+    }, []);
+    
 
-
-    setInterval(() => {
-        const fakeUserName = `User-${Math.floor(Math.random() * 100)}`;
-        localStorage.setItem("chathistory", fakeUserName)
-        setChatHistory(prevHistory => prevHistory + `(${fakeUserName})- Hello, from: ${fakeUserName}\n`);
-        // displayPeerMessage({ msg: 'Hello', from: userName });
-      }, 3000);
-
-    function displayPeerMessage(){
-        setChatHistory(prevHistory => prevHistory + `(${userName})- ${message}\n`);
-    }
     useEffect(()=>{
         localStorage.setItem("chatHistory", chatHistory);
     }, [chatHistory]);
@@ -31,7 +30,6 @@ export function Chat({user}) {
     }
     
     function sendMessage(s){
-        console.log(s);
         s.preventDefault();
         if (message == "clearmessages" || message == "\"clearmessages\""){
             setChatHistory("")
@@ -49,6 +47,20 @@ export function Chat({user}) {
     }, []);
 
 
+    const [friendlist, setFriendlist] = React.useState(["A","b","c"]);
+    
+    function addFriend(f){
+        React.useEffect(()=>{
+            setFriendlist(["a","b","c"])
+        })
+    }
+
+    useEffect(()=>{
+        localStorage.setItem("friendlist", "balls");
+    }, [friendlist]);
+
+    
+
 
   return (
     <main className="container-fluid bg-secondary text-center">
@@ -63,6 +75,7 @@ export function Chat({user}) {
                     <th></th>
                     <th>Active?</th>
                 </tr>
+                <div>{friendlist}</div>
                 <tr><th>Adam</th> <th></th><th>Yes</th></tr>
                 <tr><th>Jill</th> <th></th><th>No</th></tr>
                 <tr><th>Maxwell</th> <th></th><th>Yes</th></tr>

@@ -5,9 +5,23 @@ import "./chatstyles.css";
 export function Chat({user}) {
 
     const [message, setMessage] = React.useState("");
+    const [fakemessage, setFakeMessage] = React.useState("");// Remove at later deliverable
     const [chatHistory, setChatHistory] = React.useState(()=>{
         return localStorage.getItem("chatHistory") || "";
     });
+
+
+
+    setInterval(() => {
+        const fakeUserName = `User-${Math.floor(Math.random() * 100)}`;
+        localStorage.setItem("chathistory", fakeUserName)
+        setChatHistory(prevHistory => prevHistory + `(${fakeUserName})- Hello, from: ${fakeUserName}\n`);
+        // displayPeerMessage({ msg: 'Hello', from: userName });
+      }, 3000);
+
+    function displayPeerMessage(){
+        setChatHistory(prevHistory => prevHistory + `(${userName})- ${message}\n`);
+    }
     useEffect(()=>{
         localStorage.setItem("chatHistory", chatHistory);
     }, [chatHistory]);
@@ -19,21 +33,22 @@ export function Chat({user}) {
     function sendMessage(s){
         console.log(s);
         s.preventDefault();
-        if (message == "clearmessages"){
+        if (message == "clearmessages" || message == "\"clearmessages\""){
             setChatHistory("")
             localStorage.setItem("chatHistory", "");
         }
         else{
-            setChatHistory(prevHistory => prevHistory + `${user}): ${message}\n`);
+            setChatHistory(prevHistory => prevHistory + `(${user})- ${message}\n`);
         }
         setMessage("");
     }
 
-    // if (message.trim() !== "") {
-    //     setChatHistory(prevHistory => prevHistory + "\n" + user + ": " + message);
-    //     setMessage(""); // Clear input after sending
+    const [joke, setJoke] = React.useState("Loading...");
+    React.useEffect(() => {
+        setJoke("What do you give a sick lemon? - Lemonaid!")
+    }, []);
 
-    
+
 
   return (
     <main className="container-fluid bg-secondary text-center">
@@ -79,12 +94,14 @@ export function Chat({user}) {
 
 
             <ul id="jokebox">
-                <p>Joke of the day:</p>
+                <div>A joke just for you!</div>
+                {joke}
+                {/* <p>Joke of the day:</p>
                 <li>Knock Knock:</li>
                 <li>Who's there?</li>
                 <li>Tank</li>
                 <li>Tank who?</li>
-                <li>You're welcome!</li>
+                <li>You're welcome!</li> */}
             </ul>
             <nav id="returntologinpage">
                 {/* <form method="get" action="index.html">

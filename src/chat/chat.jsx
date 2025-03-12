@@ -45,22 +45,7 @@ export function Chat({user}) {
     React.useEffect(() => {
         setJoke("What do you give a sick lemon? - Lemonaid!")
     }, []);
-
-
-    const [friendlist, setFriendlist] = React.useState(["A","b","c"]);
     
-    function addFriend(f){
-        React.useEffect(()=>{
-            setFriendlist(["a","b","c"])
-        })
-    }
-
-    useEffect(()=>{
-        localStorage.setItem("friendlist", "balls");
-    }, [friendlist]);
-
-    
-
 
   return (
     <main className="container-fluid bg-secondary text-center">
@@ -75,7 +60,6 @@ export function Chat({user}) {
                     <th></th>
                     <th>Active?</th>
                 </tr>
-                <div>{friendlist}</div>
                 <tr><th>Adam</th> <th></th><th>Yes</th></tr>
                 <tr><th>Jill</th> <th></th><th>No</th></tr>
                 <tr><th>Maxwell</th> <th></th><th>Yes</th></tr>

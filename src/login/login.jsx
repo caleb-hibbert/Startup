@@ -21,15 +21,22 @@ export function Login({setUser}) {
 
     }, 4000);
   })
+  const [username, setUsername] = React.useState("");
+  const [text, setPassword] = React.useState("");
 
-  const [text, setText] = React.useState("");
-  function loginUser(){
-    localStorage.setItem("user", text);
-    setUser(text);
-    navigate ("/chat");
+
+  function usernameChange(u){
+    setUsername(u.target.value);
   }
-  function textChange(e){
-    setText(e.target.value);
+  function passwordChange(p){
+    setPassword(p.target.value);
+  }
+
+  function loginUser(){
+    localStorage.setItem("username", username)
+    localStorage.setItem("password", text);
+    setUser(username); 
+    navigate ("/chat");
   }
 
   return (
@@ -39,28 +46,28 @@ export function Login({setUser}) {
             <h2>Log in</h2>
             <br/>
             
-                <form method="get" action="chat.html">
+                {/* <form method="get" action="chat.html"> */}
                 <label>Username:</label>
-                <input type="username" id="username" name="username"></input>
+                <input type="text" id="username" name="username" onChange = {usernameChange}></input>
             
                 <br/>
                 
                 <label>Password:</label>
-                <input type="text" id="passwordbox" name="varPassword" />
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <input type="text" id="passwordbox" onChange = {passwordChange}/>
+                <button type="submit" className="btn btn-primary" onClick = {loginUser}>Log in</button>
 
                 <br/>
                 <p>(First time? Just enter the username and password you'd like to use going forward!)</p>
-            </form>
-            <button onClick={countClick}>Count</button>
+            {/* </form> */}
+
+            {/* <button onClick={countClick}>Count</button>
             <div>{count}</div>
-            <div>{msg}</div>
+            <div>{msg}</div> */}
 
     
             <div>
-              <input type="text" onChange={textChange} />
+              <input type="text" onChange={passwordChange} />
               <button onClick={loginUser}> login</button>
-              
               </div>
             
         </div>

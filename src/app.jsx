@@ -8,7 +8,7 @@ import { Chat } from './chat/chat';
 
 
 export default function App() {
-  const [user, setUser] = React.useState(localStorage.getItem("user") || null);
+  const [user, setUsernameText] = React.useState(localStorage.getItem("user") || null);
   
   return (
     <BrowserRouter>
@@ -42,7 +42,7 @@ export default function App() {
 
 
     <Routes>
-        <Route path='/' element={<Login setUser={setUser}/>} exact />
+        <Route path='/' element={<Login setUser={setUsernameText}/>} exact />
         <Route path='/chat' element={<Chat user = {user}/>} />
         <Route path='*' element={<NotFound />} />
     </Routes>

@@ -47,6 +47,21 @@ export function Login({setUser}) {
     }
   }
 
+  function createUser() {
+    if (username == ""){
+      alert ("Enter a username")  
+    }
+    else if (password == ""){
+      alert("Enter a password")
+    }
+     else {
+      localStorage.setItem("username", username);
+      localStorage.setItem("password", password);
+      setUser(username);
+      navigate("/chat");
+    }
+  }
+
   return (
     <main className="container-fluid bg-secondary text-center">
         <title>CWF Login</title>
@@ -63,9 +78,11 @@ export function Login({setUser}) {
                 <label>Password:</label>
                 <input type="text" id="passwordbox" onChange = {passwordChange}/>
                 <button type="submit" className="btn btn-primary" onClick = {loginUser}>Log in</button>
+                <button type="submit" className="btn btn-primary" onClick={createUser}>Create Account</button>
+
 
                 <br/>
-                <p>(First time? Just enter the username and password you'd like to use going forward!)</p>
+                {/* <p>(First time? Just enter the username and password you'd like to use going forward!)</p> */}
 
             {/* </form> */}
 

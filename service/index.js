@@ -46,10 +46,17 @@ apiRouter.post('/auth/login', async (req, res) => {
       user.token = uuid.v4();
       setAuthCookie(res, user.token);
       res.send({ email: user.email });
-      return;
     }
+    else{
+        return res.status(401).send({msg: 'Wrong password'});
+    }
+  } else{
+    user = await createUser(email, password);
+    setAuthCookie(res, user.token);
+    return res.send({ email: user.email });
+
   }
-  res.status(401).send({ msg: 'Unauthorized' });
+  //res.status(401).send({ msg: 'Unauthorized' });
 });
 
 // DeleteAuth logout a user
@@ -138,7 +145,7 @@ async function findUser(field, value) {
 function setAuthCookie(res, authToken) {
   res.cookie(authCookieName, authToken, {
     maxAge: 1000 * 60 * 60 * 24 * 365,
-    secure: true,
+    secure: true, // set to false for testing?
     httpOnly: true,
     sameSite: 'strict',
   });

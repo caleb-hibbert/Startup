@@ -32,35 +32,98 @@ export function Login({setUser}) {
     setPassword(p.target.value);
   }
 
-  function loginUser(){
-    if (username == ""){
-      alert ("Enter a username")  
+  async function loginUser() {
+    if (username === "") {
+      alert("Enter a username");
+      return;
     }
-    else if (password == ""){
-      alert("Enter a password")
+    if (password === "") {
+      alert("Enter a password");
+      return;
     }
-    else{
-      localStorage.setItem("username", username)
-      localStorage.setItem("password", password);
-      setUser(username); 
-      navigate ("/chat");
+  
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: username, password }),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        setUser(data.email);
+        navigate("/chat");
+      } else {
+        const err = await response.json();
+        alert(err.msg || "Login failed");
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      alert("Something went wrong. Please try again.");
     }
   }
+  
 
-  function createUser() {
-    if (username == ""){
-      alert ("Enter a username")  
+
+  // function loginUser(){
+  //   if (username == ""){
+  //     alert ("Enter a username")  
+  //   }
+  //   else if (password == ""){
+  //     alert("Enter a password")
+  //   }
+  //   else{
+  //     localStorage.setItem("username", username)
+  //     localStorage.setItem("password", password);
+  //     setUser(username); 
+  //     navigate ("/chat");
+  //   }
+  // }
+
+
+  async function createUser() {
+    if (username === "") {
+      alert("Enter a username");
+      return;
     }
-    else if (password == ""){
-      alert("Enter a password")
+    if (password === "") {
+      alert("Enter a password");
+      return;
     }
-     else {
-      localStorage.setItem("username", username);
-      localStorage.setItem("password", password);
-      setUser(username);
-      navigate("/chat");
-    }
-  }
+  
+   
+    const response = await fetch('/api/auth/create', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: username, password }),
+    });
+
+
+    const data = await response.json();
+    setUser(data.email);
+    navigate("/chat");
+}
+  
+
+
+
+
+
+  // function createUser() {
+  //   if (username == ""){
+  //     alert ("Enter a username")  
+  //   }
+  //   else if (password == ""){
+  //     alert("Enter a password")
+  //   }
+  //    else {
+  //     localStorage.setItem("username", username);
+  //     localStorage.setItem("password", password);
+  //     setUser(username);
+  //     navigate("/chat");
+  //   }
+  // }
+
 
   return (
     <main className="container-fluid bg-secondary text-center">

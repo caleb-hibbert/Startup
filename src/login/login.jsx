@@ -31,37 +31,28 @@ export function Login({setUser}) {
   function passwordChange(p){
     setPassword(p.target.value);
   }
+//--------------------------------------------------------------------
 
-  async function loginUser() {
-    if (username === "") {
-      alert("Enter a username");
-      return;
-    }
-    if (password === "") {
-      alert("Enter a password");
-      return;
-    }
-  
-    try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: username, password }),
-      });
-  
-      if (response.ok) {
-        const data = await response.json();
-        setUser(data.email);
-        navigate("/chat");
-      } else {
-        const err = await response.json();
-        alert(err.msg || "Login failed");
-      }
-    } catch (err) {
-      console.error("Login error:", err);
-      alert("Something went wrong. Please try again.");
+
+  async function loginOrCreate(endpoint) {
+    const response = await fetch(endpoint, {
+      method: 'post',
+      body: JSON.stringify({ email: userName, password: password }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    if (response?.status === 200) {
+      localStorage.setItem('userName', userName);
+      props.onLogin(userName);
+    } else {
+      const body = await response.json();
+      setDisplayError(`⚠ Error: ${body.msg}`);
     }
   }
+  
+
+
   
 
 
@@ -81,28 +72,25 @@ export function Login({setUser}) {
   // }
 
 
-  async function createUser() {
-    if (username === "") {
-      alert("Enter a username");
-      return;
-    }
-    if (password === "") {
-      alert("Enter a password");
-      return;
-    }
+  async function createUser(email, password) {
+    const passwordHash = await bcrypt.hash(password, 10);
   
-   
-    const response = await fetch('/api/auth/create', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: username, password }),
-    });
-
-
-    const data = await response.json();
-    setUser(data.email);
-    navigate("/chat");
-}
+    const user = {
+      email: email,
+      password: passwordHash,
+      token: uuid.v4(),
+    };
+    users.push(user);
+  
+    return user;
+  }
+  
+  async function findUser(field, value) {
+    if (!value) return null;
+  
+    return users.find((u) => u[field] === value);
+  }
+  
   
 
 
@@ -125,6 +113,9 @@ export function Login({setUser}) {
   // }
 
 
+  //--------------------------------------------------------------------
+
+
   return (
     <main className="container-fluid bg-secondary text-center">
         <title>CWF Login</title>
@@ -140,7 +131,7 @@ export function Login({setUser}) {
                 
                 <label>Password:</label>
                 <input type="text" id="passwordbox" onChange = {passwordChange}/>
-                <button type="submit" className="btn btn-primary" onClick = {loginUser}>Log in</button>
+                <button type="submit" className="btn btn-primary" onClick = {loginOrCreate}>Log in</button>
                 <button type="submit" className="btn btn-primary" onClick={createUser}>Create Account</button>
 
 

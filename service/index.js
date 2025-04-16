@@ -39,6 +39,15 @@ apiRouter.post('/auth/create', async (req, res) => {
   }
 });
 
+
+var testdata = {test: "testdata"};  
+apiRouter.get('/test', (_req, res) => {
+    console.log("In Test")
+    res.send(testdata);
+  });
+
+
+
 // GetAuth login an existing user
 apiRouter.post('/auth/login', async (req, res) => {
   const user = await findUser('email', req.body.email);

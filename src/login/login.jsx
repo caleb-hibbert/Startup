@@ -1,6 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, NavLink, Route, Routes, useNavigate } from 'react-router-dom';
 export function Login({setUser}) {
+//FOR TESTING
+const [teststuff, setTeststuff] = React.useState("Starting Test")
+function handleClick(){
+  console.log('Button clicked');
+    fetch('/api/test')
+    .then((response) => response.json())
+    .then((testing) => {
+      console.log(testing.test);
+      setTeststuff(testing.test);
+    });
+  }
+
 
   const [count, setCount] = React.useState(parseInt(localStorage.getItem('count')) || 0);
   const navigate = useNavigate();
@@ -31,20 +43,24 @@ export function Login({setUser}) {
   function passwordChange(p){
     setPassword(p.target.value);
   }
+
+
+
 //--------------------------------------------------------------------
 
 
   async function loginOrCreate(endpoint) {
     const response = await fetch(endpoint, {
       method: 'post',
-      body: JSON.stringify({ email: userName, password: password }),
+      body: JSON.stringify({ email: username, password: password }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
     });
     if (response?.status === 200) {
-      localStorage.setItem('userName', userName);
-      props.onLogin(userName);
+      localStorage.setItem('userName', username);
+      setUser(username);
+      navigate("/chat")
     } else {
       const body = await response.json();
       setDisplayError(`⚠ Error: ${body.msg}`);
@@ -116,6 +132,8 @@ export function Login({setUser}) {
   //--------------------------------------------------------------------
 
 
+
+
   return (
     <main className="container-fluid bg-secondary text-center">
         <title>CWF Login</title>
@@ -131,11 +149,15 @@ export function Login({setUser}) {
                 
                 <label>Password:</label>
                 <input type="text" id="passwordbox" onChange = {passwordChange}/>
-                <button type="submit" className="btn btn-primary" onClick = {loginOrCreate}>Log in</button>
-                <button type="submit" className="btn btn-primary" onClick={createUser}>Create Account</button>
+                <button type="submit" className="btn btn-primary" onClick = {() => loginOrCreate()}>Log in</button>
+                <button type="submit" className="btn btn-primary" onClick={() => createUser()}>Create Account</button>
 
 
                 <br/>
+                <div>{teststuff}</div>
+                <button onClick={handleClick}>Test</button>
+
+
                 {/* <p>(First time? Just enter the username and password you'd like to use going forward!)</p> */}
 
             {/* </form> */}

@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, NavLink, Route, Routes, useNavigate } from 'react-router-dom';
+// const cookieParser = require('cookie-parser');
+// const bcrypt = require('bcryptjs');
+// const uuid = require('uuid');
 export function Login({setUser}) {
+
 //FOR TESTING
 const [teststuff, setTeststuff] = React.useState("Starting Test")
 function handleClick(){
@@ -47,7 +51,14 @@ function handleClick(){
 
 
 //--------------------------------------------------------------------
+const [displayError, setDisplayError] = React.useState(null);
+async function loginUser() {
+  loginOrCreate(`/api/auth/login`);
+}
 
+async function createUser() {
+  loginOrCreate(`/api/auth/create`);
+}
 
   async function loginOrCreate(endpoint) {
     const response = await fetch(endpoint, {
@@ -88,18 +99,18 @@ function handleClick(){
   // }
 
 
-  async function createUser(email, password) {
-    const passwordHash = await bcrypt.hash(password, 10);
+  // async function createUser(email, password) {
+  //   const passwordHash = await bcrypt.hash(password, 10);
   
-    const user = {
-      email: email,
-      password: passwordHash,
-      token: uuid.v4(),
-    };
-    users.push(user);
+  //   const user = {
+  //     email: email,
+  //     password: passwordHash,
+  //     token: uuid.v4(),
+  //   };
+  //   users.push(user);
   
-    return user;
-  }
+  //   return user;
+  // }
   
   async function findUser(field, value) {
     if (!value) return null;
@@ -149,7 +160,7 @@ function handleClick(){
                 
                 <label>Password:</label>
                 <input type="text" id="passwordbox" onChange = {passwordChange}/>
-                <button type="submit" className="btn btn-primary" onClick = {() => loginOrCreate()}>Log in</button>
+                <button type="submit" className="btn btn-primary" onClick = {() => loginUser()}>Log in</button>
                 <button type="submit" className="btn btn-primary" onClick={() => createUser()}>Create Account</button>
 
 

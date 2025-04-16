@@ -88,11 +88,11 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
+- [X] **Node.js/Express HTTP service** - Complete.
+- [X] **Static middleware for frontend** - Complete.
+- [X] **Calls to third party endpoints** - Makes call to the Chuck Norris joke API and displays the joke on the chat page.
+- [X] **Backend service endpoints** - Stores the user and their chat history
+- [X] **Frontend calls service endpoints** - Requires the correct username/password combo to access the account and history.
 
 ## 🚀 DB/Login deliverable
 

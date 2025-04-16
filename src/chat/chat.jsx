@@ -30,7 +30,8 @@ export function Chat({user}) {
             })
             .finally(() => {
               localStorage.removeItem('userName');
-              props.onLogout();
+              navigate("/");
+            //   props.onLogout();
             });
         }
 

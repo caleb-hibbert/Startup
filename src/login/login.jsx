@@ -165,8 +165,8 @@ async function createUser() {
 
 
                 <br/>
-                <div>{teststuff}</div>
-                <button onClick={handleClick}>Test</button>
+                {/* <div>{teststuff}</div>
+                <button onClick={handleClick}>Test</button> */}
 
 
                 {/* <p>(First time? Just enter the username and password you'd like to use going forward!)</p> */}

@@ -40,9 +40,9 @@ export function Chat({user}) {
 
     const [message, setMessage] = React.useState("");
     const [fakemessage, setFakeMessage] = React.useState("");// Remove at later deliverable
-    const [chatHistory, setChatHistory] = React.useState(()=>{
-        return localStorage.getItem("chatHistory") || "";
-    });
+    const [chatHistory, setChatHistory] = React.useState(() => {
+        return localStorage.getItem(`chatHistory-${user}`) || "";
+      });
 
     useEffect(() => {
         const intervalId = setInterval(()=>{
@@ -55,9 +55,10 @@ export function Chat({user}) {
     }, []);
     
 
-    useEffect(()=>{
-        localStorage.setItem("chatHistory", chatHistory);
-    }, [chatHistory]);
+    useEffect(() => {
+        localStorage.setItem(`chatHistory-${user}`, chatHistory);
+      }, [chatHistory, user]); 
+      
 
     function messageChange(m){
         setMessage(m.target.value);
@@ -67,7 +68,8 @@ export function Chat({user}) {
         s.preventDefault();
         if (message == "clearmessages" || message == "\"clearmessages\""){
             setChatHistory("")
-            localStorage.setItem("chatHistory", "");
+            localStorage.setItem(`chatHistory-${user}`, "");
+
         }
         else{
             setChatHistory(prevHistory => prevHistory + `(${user})- ${message}\n`);

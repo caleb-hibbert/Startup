@@ -38,11 +38,15 @@ overflow:scroll;
 
 
 #jokebox {
-    bottom: -124px;
+    bottom: -108px;
     left: 0px;
     border:1px solid #000;
     padding:1px;
     position: absolute;
+    white-space: normal; 
+    word-wrap: break-word; 
+    max-width: 300px; 
+    margin: 0 auto;
 }
 
 @media (max-width: 1120px), (max-height: 480px){

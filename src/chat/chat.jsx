@@ -4,6 +4,39 @@ import "./chatstyles.css";
 
 export function Chat({user}) {
 
+
+    const url = "https://api.chucknorris.io/jokes/random?category=dev";
+    const [quote, setQuote] = useState(null);
+
+    useEffect(() => {
+      fetch('https://api.chucknorris.io/jokes/random?category=dev')
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data); 
+          setQuote(data);    
+        })
+        .catch((err) => console.error("API error:", err));
+    }, []);
+    
+
+        const navigate = useNavigate();
+      
+        function logout() {
+          fetch(`/api/auth/logout`, {
+            method: 'delete',
+          })
+            .catch(() => {
+              // Logout failed. Assuming offline
+            })
+            .finally(() => {
+              localStorage.removeItem('userName');
+              props.onLogout();
+            });
+        }
+
+      
+
+
     const [message, setMessage] = React.useState("");
     const [fakemessage, setFakeMessage] = React.useState("");// Remove at later deliverable
     const [chatHistory, setChatHistory] = React.useState(()=>{
@@ -83,16 +116,24 @@ export function Chat({user}) {
                 <input type="text" value = {message} onChange = {messageChange} ></input>
                 <button type="submit" className="btn btn-primary" onClick = {sendMessage}>Send</button>
             </form>
-            <div>(type "clearmessages" in the text box to reset the chat window.)
+            <div>(type "clearmessages" in the text box to reset the chat window. ) 
+            <button type="submit" className="btn btn-primary" onClick = {() => logout()}>Log out</button>
+            
             </div>
 
 
-
-
-
             <ul id="jokebox">
-                <div>A joke just for you!</div>
-                {joke}
+            <div>A joke just for you!</div>
+            {quote ? (
+            <div className="quote-box">
+                <p>"{quote.value}"</p>
+                <p><em>— {quote.author}</em></p>
+            </div>
+            ) : (
+            <p>Loading quote...</p>
+            )}
+                
+                
                 {/* <p>Joke of the day:</p>
                 <li>Knock Knock:</li>
                 <li>Who's there?</li>

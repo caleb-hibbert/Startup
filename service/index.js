@@ -59,7 +59,6 @@ async function createUser(email, password) {
     token: uuid.v4(),
   };
   await DB.addUser(user);
-
   return user;
 }
 
@@ -101,14 +100,19 @@ apiRouter.post('/auth/login', async (req, res) => {
   res.status(401).send({ msg: 'Unauthorized' });
 });
 
-async function findUser(field, value) {
-  if (!value) return null;
 
-  if (field === 'token') {
-    return DB.getUserByToken(value);
-  }
-  return DB.getUser(value);
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -117,10 +121,20 @@ async function findUser(field, value) {
 
 
 // DeleteAuth logout a user
+// apiRouter.delete('/auth/logout', async (req, res) => {
+//   const user = await findUser('token', req.cookies[authCookieName]);
+//   if (user) {
+//     delete user.token;
+//   }
+//   res.clearCookie(authCookieName);
+//   res.status(204).end();
+// });
+// DeleteAuth token if stored in cookie
 apiRouter.delete('/auth/logout', async (req, res) => {
   const user = await findUser('token', req.cookies[authCookieName]);
   if (user) {
     delete user.token;
+    DB.updateUser(user);
   }
   res.clearCookie(authCookieName);
   res.status(204).end();
@@ -179,23 +193,25 @@ function updateScores(newScore) {
   return scores;
 }
 
-async function createUser(email, password) {
-  const passwordHash = await bcrypt.hash(password, 10);
+// async function createUser(email, password) {
+//   const passwordHash = await bcrypt.hash(password, 10);
 
-  const user = {
-    email: email,
-    password: passwordHash,
-    token: uuid.v4(),
-  };
-  await DB.addUser(user);
-
-  return user;
-}
+//   const user = {
+//     email: email,
+//     password: passwordHash,
+//     token: uuid.v4(),
+//   };
+//   await DB.addUser(user);
+//   return user;
+// }
 
 async function findUser(field, value) {
   if (!value) return null;
 
-  return users.find((u) => u[field] === value);
+  if (field === 'token') {
+    return DB.getUserByToken(value);
+  }
+  return DB.getUser(value);
 }
 
 // setAuthCookie in the HTTP response

@@ -8,6 +8,8 @@ const DB = require('./database.js');
 
 
 
+
+
 const authCookieName = 'token';
 
 // The scores and users are saved in memory and disappear whenever the service is restarted.
@@ -30,6 +32,12 @@ app.use(express.static('public'));
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+
+
+
+
+
+
 // CreateAuth a new user
 apiRouter.post('/auth/create', async (req, res) => {
   if (await findUser('email', req.body.email)) {
@@ -41,6 +49,19 @@ apiRouter.post('/auth/create', async (req, res) => {
     res.send({ email: user.email });
   }
 });
+
+async function createUser(email, password) {
+  const passwordHash = await bcrypt.hash(password, 10);
+
+  const user = {
+    email: email,
+    password: passwordHash,
+    token: uuid.v4(),
+  };
+  await DB.addUser(user);
+
+  return user;
+}
 
 
 var testdata = {test: "testdata"};  
@@ -64,6 +85,35 @@ apiRouter.post('/auth/login', async (req, res) => {
   }
   res.status(401).send({ msg: 'Unauthorized' });
 });
+
+// GetAuth token for the provided credentials
+apiRouter.post('/auth/login', async (req, res) => {
+  const user = await findUser('email', req.body.email);
+  if (user) {
+    if (await bcrypt.compare(req.body.password, user.password)) {
+      user.token = uuid.v4();
+      await DB.updateUser(user);
+      setAuthCookie(res, user.token);
+      res.send({ email: user.email });
+      return;
+    }
+  }
+  res.status(401).send({ msg: 'Unauthorized' });
+});
+
+async function findUser(field, value) {
+  if (!value) return null;
+
+  if (field === 'token') {
+    return DB.getUserByToken(value);
+  }
+  return DB.getUser(value);
+}
+
+
+
+
+
 
 
 // DeleteAuth logout a user
@@ -137,7 +187,7 @@ async function createUser(email, password) {
     password: passwordHash,
     token: uuid.v4(),
   };
-  users.push(user);
+  await DB.addUser(user);
 
   return user;
 }

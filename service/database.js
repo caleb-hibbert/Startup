@@ -49,6 +49,21 @@ function getHighScores() {
   return cursor.toArray();
 }
 
+const messageCollection = db.collection('message');
+
+async function addMessage(message) {
+  await messageCollection.insertOne(message);
+}
+
+async function getMessages() {
+  return messageCollection.find().sort({ time: 1 }).toArray();
+}
+
+
+
+
+
+
 module.exports = {
   getUser,
   getUserByToken,
@@ -56,4 +71,6 @@ module.exports = {
   updateUser,
   addScore,
   getHighScores,
+  addMessage,
+  getMessages
 };

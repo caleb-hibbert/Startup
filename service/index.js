@@ -38,6 +38,15 @@ app.use(`/api`, apiRouter);
 
 
 
+
+
+
+
+
+
+
+
+
 // CreateAuth a new user
 apiRouter.post('/auth/create', async (req, res) => {
   if (await findUser('email', req.body.email)) {
@@ -223,6 +232,36 @@ function setAuthCookie(res, authToken) {
     sameSite: 'strict',
   });
 }
+
+
+
+
+
+apiRouter.post('/messages', verifyAuth, async (req, res) => {
+  const user = await findUser('token', req.cookies[authCookieName]);
+  const message = {
+    email: user.email,
+    text: req.body.text,
+    time: new Date().toISOString(),
+  };
+  await DB.addMessage(message);
+  res.status(201).send({ msg: 'Message saved' });
+});
+
+apiRouter.get('/messages', verifyAuth, async (_req, res) => {
+  const messages = await DB.getMessages();
+  res.send(messages);
+});
+
+
+
+
+
+
+
+
+
+
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
